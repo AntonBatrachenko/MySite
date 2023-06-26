@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея картинок</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Шапка сайту -->
+    <header>
+        <!-- Логотип -->
+        <img class="logotype" src="logotype.png" alt="Логотип">
+    </header>
+    <!-- Меню -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Про сайт</a></li>
+            <li><a href="gallery.html">Галерея картинок</a></li>
+            <li><a href="news.html">Новини</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </nav>
+    <section class="gallery">
+        <h2>Галерея картинок</h2>
+        <div class="gallery-container">
+            <div class="image-item">
+                <img src="news/Barabash.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Beduha.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Bogodayko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Borovyk.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Bozhynskiy.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Brazhnyk.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Denysenko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Gavryshko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Kerecman.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Kobzar.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Korobov.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Korsyn.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Kovalchuk.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Kulach.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/May.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Mychko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Onipko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Ostapchuk.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Politko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Pruymachov.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Scherbak.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Solovey.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Syshko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Team.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Ustymenko.JPG">
+            </div>
+            <div class="image-item">
+                <img src="news/Virchenko.JPG">
+            </div>
+        </div>
+    </section>
+    <script>
+        // Отримуємо всі елементи з класом "image-item"
+        const imageItems = document.querySelectorAll('.image-item');
+
+        // Перебираємо кожен елемент "image-item"
+        imageItems.forEach((item) => {
+            // Додаємо подію "click" для кожного елементу
+            item.addEventListener('click', () => {
+                // Отримуємо URL зображення
+                const imageUrl = item.querySelector('img').src;
+
+                // Відкриваємо зображення в новому вікні
+                window.open(imageUrl);
+            });
+        });
+    </script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img class="logotype" src="logotype.png" alt="Логотип">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">Про сайт</a></li>
+                    <li><a href="gallery.html">Галерея картинок</a></li>
+                    <li><a href="news.html">Новини</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://www.facebook.com/poltntufiz/"><i class="fab fa-facebook"></i><img class="socials" src="facebook.png"></a></li>
+                    <li><a href="https://www.instagram.com/poltava_polytechnic/"><i class="fab fa-instagram"></i><img class="socials" src="instagram.png"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

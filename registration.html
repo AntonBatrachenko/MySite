@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рєстрація</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #555;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="login"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 3px;
+            border: none;
+            background-color: #777;
+            color: #fff;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff6600;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Реєстрація</h1>
+    <form id="registrationForm">
+        <label for="firstName">Ім'я:</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
+
+        <label for="lastName">Прізвище:</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="login">Логін:</label>
+        <input type="login" id="login" name="login" required><br><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="phone">Номер телефону:</label>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="country">Країна:</label>
+        <select id="country" name="country" onchange="updateCities()" required>
+            <option value="" disabled selected>Оберіть країну</option>
+            <option value="AF">Афганістан</option>
+            <option value="AL">Албанія</option>
+            <option value="DZ">Алжир</option>
+            <option value="AD">Андорра</option>
+            <option value="AO">Ангола</option>
+            <option value="AR">Аргентина</option>
+            <option value="AM">Вірменія</option>
+            <option value="AW">Аруба</option>
+            <option value="AU">Австралія</option>
+            <option value="AT">Австрія</option>
+            <option value="AZ">Азербайджан</option>
+            <option value="BS">Багамські острови</option>
+            <option value="BH">Бахрейн</option>
+            <option value="BD">Бангладеш</option>
+            <option value="BB">Барбадос</option>
+            <option value="BE">Бельгія</option>
+            <option value="BZ">Беліз</option>
+            <option value="BJ">Бенін</option>
+            <option value="BM">Бермудські острови</option>
+            <option value="BT">Бутан</option>
+            <option value="BO">Болівія</option>
+            <option value="BW">Ботсвана</option>
+            <option value="BR">Бразилія</option>
+            <option value="BN">Бруней</option>
+            <option value="BG">Болгарія</option>
+            <option value="BF">Буркіна-Фасо</option>
+            <option value="BI">Бурунді</option>
+            <option value="KH">Камбоджа</option>
+            <option value="CM">Камерун</option>
+            <option value="CA">Канада</option>
+            <option value="CV">Кабо-Верде</option>
+            <option value="KY">Кайманові острови</option>
+            <option value="CF">Центральноафриканська Республіка</option>
+            <option value="TD">Чад</option>
+            <option value="CL">Чилі</option>
+            <option value="JP">Японія</option>
+            <option value="CN">Китай</option>
+            <option value="CO">Колумбія</option>
+            <option value="KM">Коморські острови</option>
+            <option value="CG">Конго</option>
+            <option value="CR">Коста-Рика</option>
+            <option value="CI">Кот-д'Івуар</option>
+            <option value="HR">Хорватія</option>
+            <option value="CU">Куба</option>
+            <option value="CY">Кіпр</option>
+            <option value="CZ">Чехія</option>
+            <option value="DK">Данія</option>
+            <option value="DJ">Джибуті</option>
+            <option value="DM">Домініка</option>
+            <option value="DO">Домініканська Республіка</option>
+            <option value="EC">Еквадор</option>
+            <option value="EG">Єгипет</option>
+            <option value="SV">Сальвадор</option>
+            <option value="GQ">Екваторіальна Гвінея</option>
+            <option value="ER">Еритрея</option>
+            <option value="EE">Естонія</option>
+            <option value="ET">Ефіопія</option>
+            <option value="FJ">Фіджі</option>
+            <option value="FI">Фінляндія</option>
+            <option value="FR">Франція</option>
+            <option value="GA">Габон</option>
+            <option value="GM">Гамбія</option>
+            <option value="GE">Грузія</option>
+            <option value="DE">Німеччина</option>
+            <option value="GH">Гана</option>
+            <option value="GR">Греція</option>
+            <option value="GD">Гренада</option>
+            <option value="GT">Гватемала</option>
+            <option value="GN">Гвінея</option>
+            <option value="GW">Гвінея-Бісау</option>
+            <option value="GY">Гайана</option>
+            <option value="HT">Гаїті</option>
+            <option value="HN">Гондурас</option>
+            <option value="HU">Угорщина</option>
+            <option value="UA">Україна</option>
+            <option value="IE">Ірландія</option>
+            <option value="IS">Ісландія</option>
+            <option value="IN">Індія</option>
+            <option value="ID">Індонезія</option>
+            <option value="IQ">Ірак</option>
+            <option value="IR">Іран</option>
+            <option value="IL">Ізраїль</option>
+            <option value="IT">Італія</option>
+            <option value="ES">Іспанія</option>
+            <option value="US">Сполучені Штати Америки</option>
+            <option value="JM">Ямайка</option>
+            <!-- Додайте варіанти країн тут -->
+        </select><br><br>
+
+        <label for="city">Місто:</label>
+        <select id="city" name="city" required>
+            <option value="">Оберіть місто</option>
+            <!-- Додайте варіанти міст тут -->
+        </select><br><br>
+
+        <script>
+            function updateCities() {
+                var countrySelect = document.getElementById("country");
+                var citySelect = document.getElementById("city");
+                var selectedCountry = countrySelect.value;
+
+                // Очищаємо список міст
+                citySelect.innerHTML = "";
+
+                // Додаємо варіанти міст залежно від обраної країни
+                if (selectedCountry === "AF") {
+                    addCityOption("Кабул");
+                    addCityOption("Мазарі-Шариф");
+                    addCityOption("Кандагар");
+                    addCityOption("Херат");
+                } else if (selectedCountry === "AL") {
+                    addCityOption("Тирана");
+                    addCityOption("Дуррес");
+                    addCityOption("Влора");
+                    addCityOption("Ельбасан");
+                } else if (selectedCountry === "DZ") {
+                    addCityOption("Алжир");
+                    addCityOption("Оран");
+                    addCityOption("Константина");
+                    addCityOption("Батна");
+                    addCityOption("Біскра");
+                    addCityOption("Тлемсен");
+                    addCityOption("Тізі Узу");
+                } else if (selectedCountry === "AD") {
+                    addCityOption("Андорра-ла-Велья");
+                    addCityOption("Ель-Тартер");
+                    addCityOption("Енкамп");
+                    addCityOption("Сант-Жулія-де-Лорія");
+                    addCityOption("Ла-Массана");
+                    addCityOption("Сант-Жулія-де-Лорія");
+                    addCityOption("Ескальдес-Енгордань");
+                } else if (selectedCountry === "AO") {
+                    addCityOption("Луанда");
+                    addCityOption("Намібія");
+                    addCityOption("Кабінда");
+                    addCityOption("Маланже");
+                    addCityOption("Хуамбо");
+                    addCityOption("Лобіто");
+                    addCityOption("Бенгела");
+                    addCityOption("Уіге");
+                } else if (selectedCountry === "AR") {
+                    addCityOption("Буенос-Айрес");
+                    addCityOption("Кордова");
+                    addCityOption("Росаріо");
+                    addCityOption("Мендоса");
+                    addCityOption("Сан-Мігель-де-Тукуман");
+                    addCityOption("Ла-Плата");
+                    addCityOption("Мар-дель-Плата");
+                    addCityOption("Сан-Сальвадор-де-Жужуй");
+                } else if (selectedCountry === "AM") {
+                    addCityOption("Єреван");
+                    addCityOption("Гюмрі");
+                    addCityOption("Ванадзор");
+                    addCityOption("Севан");
+                    addCityOption("Хор Вірап");
+                    addCityOption("Аракс");
+                    addCityOption("Степанаван");
+                    addCityOption("Гавар");
+                } else if (selectedCountry === "AW") {
+                    addCityOption("Ораньєстад");
+                    addCityOption("Сан Ніколас");
+                    addCityOption("Нойібі");
+                    addCityOption("Саванета");
+                    addCityOption("Санта Круз");
+                    addCityOption("Парадайс");
+                    addCityOption("Манчікіто");
+                    addCityOption("Сабанета");
+                } else if (selectedCountry === "AU") {
+                    addCityOption("Сідней");
+                    addCityOption("Мельбурн");
+                    addCityOption("Брісбен");
+                    addCityOption("Перт");
+                    addCityOption("Аделаїда");
+                    addCityOption("Голд-Коуст");
+                    addCityOption("Кенберра");
+                    addCityOption("Кейрнс");
+                } else if (selectedCountry === "AT") {
+                    addCityOption("Відень");
+                    addCityOption("Грац");
+                    addCityOption("Лінц");
+                    addCityOption("Зальцбург");
+                    addCityOption("Інсбрук");
+                    addCityOption("Клагенфурт");
+                    addCityOption("Вельс");
+                    addCityOption("Штейр");
+                } else if (selectedCountry === "AZ") {
+                    addCityOption("Баку");
+                    addCityOption("Гянджа");
+                    addCityOption("Сумгаїт");
+                    addCityOption("Мінгечаур");
+                    addCityOption("Шекі");
+                    addCityOption("Ленкорань");
+                    addCityOption("Нахічевань");
+                    addCityOption("Габала");
+                } else if (selectedCountry === "BS") {
+                    addCityOption("Нассау");
+                    addCityOption("Гранд-Бахама");
+                    addCityOption("Абако");
+                    addCityOption("Екзума");
+                    addCityOption("Андрос");
+                    addCityOption("Беррі-Айленд");
+                    addCityOption("Агуантинс");
+                    addCityOption("Маґна");
+                } else if (selectedCountry === "BH") {
+                    addCityOption("Манама");
+                    addCityOption("Мухаррак");
+                    addCityOption("Рифа");
+                    addCityOption("Хамад-Таун");
+                    addCityOption("Ал Мухаррак");
+                    addCityOption("Ал Хід");
+                    addCityOption("Мадінат-Хамад");
+                } else if (selectedCountry === "BD") {
+                    addCityOption("Дакка");
+                    addCityOption("Читтагонг");
+                    addCityOption("Халка");
+                    addCityOption("Раджшахі");
+                    addCityOption("Кхулна");
+                    addCityOption("Силхет");
+                    addCityOption("Барісал");
+                    addCityOption("Рангпур");
+                } else if (selectedCountry === "BB") {
+                    addCityOption("Бріджтаун");
+                    addCityOption("Сент Люсія");
+                    addCityOption("Гастінс");
+                    addCityOption("Хоулт");
+                    addCityOption("Спейтстаун");
+                    addCityOption("Ойстінс");
+                    addCityOption("Батсворт");
+                    addCityOption("Кріст Черч");
+                } else if (selectedCountry === "BE") {
+                    addCityOption("Брюссель");
+                    addCityOption("Антверпен");
+                    addCityOption("Гент");
+                    addCityOption("Льєж");
+                    addCityOption("Брюгге");
+                    addCityOption("Шарлеруа");
+                    addCityOption("Монс");
+                    addCityOption("Намюр");
+                } else if (selectedCountry === "BZ") {
+                    addCityOption("Белмопан");
+                    addCityOption("Беліз-Сіті");
+                    addCityOption("Сан-Ігнасіо");
+                    addCityOption("Оранж-Уок");
+                    addCityOption("Дангріга");
+                    addCityOption("Паначі");
+                } else if (selectedCountry === "BJ") {
+                    addCityOption("Котону");
+                    addCityOption("Порто-Ново");
+                    addCityOption("Калаві");
+                    addCityOption("Абомей");
+                    addCityOption("Божуме");
+                    addCityOption("Джакотра");
+                } else if (selectedCountry === "BM") {
+                    addCityOption("Гамільтон");
+                    addCityOption("Сент-Джордж");
+                    addCityOption("Сомерсет Вілледж");
+                    addCityOption("Варвік");
+                    addCityOption("Девоншайр");
+                    addCityOption("Вест-Енд");
+                } else if (selectedCountry === "BT") {
+                    addCityOption("Тхімпху");
+                    addCityOption("Паро");
+                    addCityOption("Пунакха");
+                    addCityOption("Вангдіфодранг");
+                    addCityOption("Бумтанг");
+                    addCityOption("Тонгса");
+                    addCityOption("Самтсе");
+                    addCityOption("Джакарта");
+                } else if (selectedCountry === "BO") {
+                    addCityOption("Ла-Пас");
+                    addCityOption("Сукре");
+                    addCityOption("Кочабамба");
+                    addCityOption("Санта-Крус");
+                    addCityOption("Оруро");
+                    addCityOption("Потосі");
+                    addCityOption("Таріха");
+                    addCityOption("Кобіха");
+                } else if (selectedCountry === "BW") {
+                    addCityOption("Габороне");
+                    addCityOption("Франсистаун");
+                    addCityOption("Молепололе");
+                    addCityOption("Серове");
+                    addCityOption("Маунт");
+                    addCityOption("Летлхакане");
+                    addCityOption("Мафікенг");
+                    addCityOption("Джваненг");
+                } else if (selectedCountry === "BR") {
+                    addCityOption("Сан-Паулу");
+                    addCityOption("Ріо-де-Жанейро");
+                    addCityOption("Сальвадор");
+                    addCityOption("Бразиліа");
+                    addCityOption("Форталеза");
+                    addCityOption("Белу-Орізонте");
+                    addCityOption("Манаус");
+                    addCityOption("Курітіба");
+                } else if (selectedCountry === "BN") {
+                    addCityOption("Бандар Сері Бегаван");
+                    addCityOption("Куала-Белайт");
+                    addCityOption("Тутунг");
+                    addCityOption("Серіа");
+                    addCityOption("Муара");
+                } else if (selectedCountry === "BG") {
+                    addCityOption("Софія");
+                    addCityOption("Пловдив");
+                    addCityOption("Варна");
+                    addCityOption("Бургас");
+                    addCityOption("Русе");
+                    addCityOption("Стара Загора");
+                    addCityOption("Плевен");
+                    addCityOption("Сливен");
+                } else if (selectedCountry === "BF") {
+                    addCityOption("Уагадугу");
+                    addCityOption("Бобо-Діуласо");
+                    addCityOption("Кудуго");
+                    addCityOption("Банфора");
+                    addCityOption("Оугадоугу");
+                    addCityOption("Кая");
+                    addCityOption("Борома");
+                    addCityOption("Дедугу");
+                } else if (selectedCountry === "BI") {
+                    addCityOption("Бужумбура");
+                    addCityOption("Музіга");
+                    addCityOption("Гітега");
+                    addCityOption("Румонге");
+                    addCityOption("Ніямірамбо");
+                    addCityOption("Рутана");
+                    addCityOption("Макамба");
+                    addCityOption("Рутову");
+                } else if (selectedCountry === "KH") {
+                    addCityOption("Пномпень");
+                    addCityOption("Сіемреап");
+                    addCityOption("Баттамбанг");
+                    addCityOption("Сіхануквіль");
+                    addCityOption("Кеп");
+                    addCityOption("Пурсат");
+                    addCityOption("Крачех");
+                    addCityOption("Кампонгчам");
+                } else if (selectedCountry === "CM") {
+                    addCityOption("Яунде");
+                    addCityOption("Дуала");
+                    addCityOption("Гаруа");
+                    addCityOption("Бафусам");
+                    addCityOption("Нколь-Нколь");
+                    addCityOption("Баменда");
+                    addCityOption("Маруа");
+                    addCityOption("Бере");
+                } else if (selectedCountry === "CA") {
+                    addCityOption("Торонто");
+                    addCityOption("Монреаль");
+                    addCityOption("Ванкувер");
+                    addCityOption("Калгарі");
+                    addCityOption("Оттава");
+                    addCityOption("Едмонтон");
+                    addCityOption("Квебек");
+                    addCityOption("Вінніпег");
+                } else if (selectedCountry === "CV") {
+                    addCityOption("Прая");
+                    addCityOption("Мінделу");
+                    addCityOption("Санта-Марія");
+                    addCityOption("Сал");
+                    addCityOption("Боа-Віста");
+                    addCityOption("Сан-Ніколау");
+                    addCityOption("Фого");
+                    addCityOption("Брако");
+                } else if (selectedCountry === "KY") {
+                    addCityOption("Джорджтаун");
+                    addCityOption("Севен-Майл-Біч");
+                    addCityOption("Вест-Бей");
+                    addCityOption("Боддентаун");
+                    addCityOption("Кайман-Брак");
+                } else if (selectedCountry === "CF") {
+                    addCityOption("Бангі");
+                    addCityOption("Бімба");
+                    addCityOption("Босангоа");
+                    addCityOption("Бамбарі");
+                    addCityOption("Кага-Бандоро");
+                    addCityOption("Мбаїкі");
+                    addCityOption("Бербераті");
+                    addCityOption("Грібізі");
+                } else if (selectedCountry === "TD") {
+                    addCityOption("Нджамена");
+                    addCityOption("Мунду");
+                    addCityOption("Абеш");
+                    addCityOption("Массакорі");
+                    addCityOption("Сахкет");
+                    addCityOption("Абех");
+                    addCityOption("Бонгор");
+                    addCityOption("Джилле");
+                } else if (selectedCountry === "CL") {
+                    addCityOption("Сантьяго");
+                    addCityOption("Вальпараїсо");
+                    addCityOption("Консепсьйон");
+                    addCityOption("Ла-Серена");
+                    addCityOption("Віна-дель-Мар");
+                    addCityOption("Темуко");
+                    addCityOption("Пуерто-Монт");
+                    addCityOption("Антофагаста");
+                } else if (selectedCountry === "JP") {
+                    addCityOption("Токіо");
+                    addCityOption("Йокогама");
+                    addCityOption("Осака");
+                    addCityOption("Кіото");
+                    addCityOption("Саппоро");
+                    addCityOption("Фукуока");
+                    addCityOption("Кавасакі");
+                    addCityOption("Нагоя");
+                } else if (selectedCountry === "CN") {
+                    addCityOption("Пекін");
+                    addCityOption("Шанхай");
+                    addCityOption("Гуанчжоу");
+                    addCityOption("Шеньчжень");
+                    addCityOption("Чунцин");
+                    addCityOption("Гонконг");
+                    addCityOption("Макао");
+                    addCityOption("Тяньцзінь");
+                } else if (selectedCountry === "CO") {
+                    addCityOption("Богота");
+                    addCityOption("Медельїн");
+                    addCityOption("Калі");
+                    addCityOption("Барранкілья");
+                    addCityOption("Картагена");
+                    addCityOption("Букараманга");
+                    addCityOption("Сантандер");
+                    addCityOption("Бельміра");
+                } else if (selectedCountry === "KM") {
+                    addCityOption("Мороні");
+                    addCityOption("Муцамуду");
+                    addCityOption("Фомбоні");
+                    addCityOption("Джахангір");
+                    addCityOption("Моенджо");
+                    addCityOption("Міцаміхуле");
+                    addCityOption("Оуані");
+                    addCityOption("Мавра");
+                } else if (selectedCountry === "CG") {
+                    addCityOption("Браззавіль");
+                    addCityOption("Пуонт-Нуар");
+                    addCityOption("Долісі");
+                    addCityOption("Лібвіль");
+                    addCityOption("Сібіту");
+                    addCityOption("Моссенджо");
+                    addCityOption("Пойнт-Ноар");
+                    addCityOption("Каюя");
+                } else if (selectedCountry === "CR") {
+                    addCityOption("Сан-Хосе");
+                    addCityOption("Лімон");
+                    addCityOption("Сан-Франциско");
+                    addCityOption("Алажуела");
+                    addCityOption("Ліберія");
+                    addCityOption("Пунтаренас");
+                    addCityOption("Картаго");
+                    addCityOption("Кітілло");
+                } else if (selectedCountry === "CI") {
+                    addCityOption("Абіджан");
+                    addCityOption("Ямусукро");
+                    addCityOption("Буаке");
+                    addCityOption("Далоа");
+                    addCityOption("Корого");
+                    addCityOption("Сан-Педро");
+                    addCityOption("Ман");
+                    addCityOption("Агнібілекру");
+                } else if (selectedCountry === "HR") {
+                    addCityOption("Загреб");
+                    addCityOption("Спліт");
+                    addCityOption("Рієка");
+                    addCityOption("Осієк");
+                    addCityOption("Задар");
+                    addCityOption("Словенська Бістриця");
+                    addCityOption("Велика Горица");
+                    addCityOption("Шибенік");
+                } else if (selectedCountry === "CU") {
+                    addCityOption("Гавана");
+                    addCityOption("Санта-Клара");
+                    addCityOption("Сьєнфуегос");
+                    addCityOption("Камагуей");
+                    addCityOption("Гвантанамо");
+                    addCityOption("Сантьяго-де-Куба");
+                    addCityOption("Матансас");
+                    addCityOption("Сьолья");
+                } else if (selectedCountry === "CY") {
+                    addCityOption("Нікосія");
+                    addCityOption("Ларнака");
+                    addCityOption("Лімасол");
+                    addCityOption("Пафос");
+                    addCityOption("Фамагуста");
+                    addCityOption("Киренія");
+                } else if (selectedCountry === "CZ") {
+                    addCityOption("Прага");
+                    addCityOption("Брно");
+                    addCityOption("Острава");
+                    addCityOption("Пльзень");
+                    addCityOption("Ліберець");
+                    addCityOption("Оломоуц");
+                    addCityOption("Грац");
+                    addCityOption("Усті-над-Лабем");
+                } else if (selectedCountry === "DK") {
+                    addCityOption("Копенгаген");
+                    addCityOption("Орхус");
+                    addCityOption("Ольборг");
+                    addCityOption("Есбйерг");
+                    addCityOption("Оденсе");
+                    addCityOption("Фредеріксхавн");
+                    addCityOption("Альборг");
+                    addCityOption("Колдинг");
+                } else if (selectedCountry === "DJ") {
+                    addCityOption("Джибуті");
+                    addCityOption("Али Сабьє");
+                    addCityOption("Таджура");
+                    addCityOption("Обок");
+                    addCityOption("Диксіт");
+                    addCityOption("Галіла");
+                    addCityOption("Годо");
+                    addCityOption("Оуад Даоуд");
+                } else if (selectedCountry === "DM") {
+                    addCityOption("Розо");
+                    addCityOption("Портсмут");
+                    addCityOption("Роузо");
+                    addCityOption("Лас-Терренас");
+                    addCityOption("Соус-Сер");
+                    addCityOption("Брес-Карриб");
+                    addCityOption("Лей Ривиер");
+                    addCityOption("Портсервіль");
+                } else if (selectedCountry === "DO") {
+                    addCityOption("Санто-Домінго");
+                    addCityOption("Сантіяго");
+                    addCityOption("Сан-Франсиско-де-Макоріс");
+                    addCityOption("Ла-Романа");
+                    addCityOption("Сан-Педро-де-Макоріс");
+                    addCityOption("Сантіаго-де-лос-Кабальєрос");
+                    addCityOption("Санта-Круз-де-Бараона");
+                    addCityOption("Пуерто-Платa");
+                } else if (selectedCountry === "EC") {
+                    addCityOption("Кіто");
+                    addCityOption("Гуаякіль");
+                    addCityOption("Куенка");
+                    addCityOption("Мачала");
+                    addCityOption("Санта-Елена");
+                    addCityOption("Амбато");
+                    addCityOption("Манта");
+                    addCityOption("Лос-Ріос");
+                } else if (selectedCountry === "EG") {
+                    addCityOption("Каїр");
+                    addCityOption("Александрія");
+                    addCityOption("Гіза");
+                    addCityOption("Шарм ель-Шейх");
+                    addCityOption("Луксор");
+                    addCityOption("Асуан");
+                    addCityOption("Хургада");
+                    addCityOption("Дахаб");
+                } else if (selectedCountry === "SV") {
+                    addCityOption("Сан-Сальвадор");
+                    addCityOption("Сан-Мігель");
+                } else if (selectedCountry === "GQ") {
+                    addCityOption("Малабо");
+                    addCityOption("Монгомо");
+                } else if (selectedCountry === "ER") {
+                    addCityOption("Асмара");
+                    addCityOption("Кісімаєо");
+                    addCityOption("Массава");
+                    addCityOption("Асаб");
+                    addCityOption("Карен");
+                } else if (selectedCountry === "EE") {
+                    addCityOption("Таллінн");
+                    addCityOption("Тарту");
+                    addCityOption("Нарва");
+                    addCityOption("Пярну");
+                    addCityOption("Кохтла-Ярве");
+                } else if (selectedCountry === "ET") {
+                    addCityOption("Аддіс-Абеба");
+                    addCityOption("Дире Дауа");
+                    addCityOption("Мекеле");
+                    addCityOption("Гондер");
+                    addCityOption("Дебре-Зейт");
+                } else if (selectedCountry === "FJ") {
+                    addCityOption("Сува");
+                    addCityOption("Лаутока");
+                    addCityOption("Наді");
+                    addCityOption("Ба");
+                    addCityOption("Ламі");
+                } else if (selectedCountry === "FI") {
+                    addCityOption("Хельсінкі");
+                    addCityOption("Еспоо");
+                    addCityOption("Тампере");
+                    addCityOption("Вантаа");
+                    addCityOption("Турку");
+                    addCityOption("Оулу");
+                    addCityOption("Лахті");
+                    addCityOption("Куопіо");
+                } else if (selectedCountry === "FR") {
+                    addCityOption("Париж");
+                    addCityOption("Марсель");
+                    addCityOption("Ліон");
+                    addCityOption("Тулуза");
+                    addCityOption("Ніцца");
+                    addCityOption("Нант");
+                    addCityOption("Страсбург");
+                    addCityOption("Бордо");
+                } else if (selectedCountry === "GA") {
+                    addCityOption("Лібревіль");
+                    addCityOption("Порт-Гентіль");
+                    addCityOption("Молібдені");
+                    addCityOption("Ойем");
+                    addCityOption("Ламбарене");
+                    addCityOption("Макоку");
+                    addCityOption("Міцамікабі");
+                    addCityOption("Тіоле");
+                } else if (selectedCountry === "GM") {
+                    addCityOption("Банжул");
+                    addCityOption("Серекунда");
+                    addCityOption("Брикама");
+                    addCityOption("Бакау");
+                    addCityOption("Барра");
+                    addCityOption("Брифут");
+                    addCityOption("Каніфінда");
+                    addCityOption("Мансаконко");
+                } else if (selectedCountry === "GE") {
+                    addCityOption("Тбілісі");
+                    addCityOption("Кутаїсі");
+                    addCityOption("Батумі");
+                    addCityOption("Зугдіді");
+                    addCityOption("Руставі");
+                    addCityOption("Горі");
+                    addCityOption("Поті");
+                    addCityOption("Сухумі");
+                } else if (selectedCountry === "DE") {
+                    addCityOption("Берлін");
+                    addCityOption("Мюнхен");
+                    addCityOption("Гамбург");
+                    addCityOption("Кельн");
+                    addCityOption("Франкфурт");
+                    addCityOption("Штутгарт");
+                    addCityOption("Дюссельдорф");
+                    addCityOption("Дортмунд");
+                } else if (selectedCountry === "GH") {
+                    addCityOption("Аккра");
+                    addCityOption("Кумасі");
+                    addCityOption("Тамале");
+                    addCityOption("Текполи");
+                    addCityOption("Секонді-Такораді");
+                    addCityOption("Тема");
+                    addCityOption("Тамаля-Норт");
+                    addCityOption("Шайле");
+                } else if (selectedCountry === "GR") {
+                    addCityOption("Афіни");
+                    addCityOption("Салоніки");
+                    addCityOption("Пірей");
+                    addCityOption("Патра");
+                    addCityOption("Халкіда");
+                    addCityOption("Ларіса");
+                    addCityOption("Волос");
+                    addCityOption("Іракліон");
+                } else if (selectedCountry === "GD") {
+                    addCityOption("Сент-Джорджес");
+                    addCityOption("Гренвіль");
+                    addCityOption("Гойва");
+                    addCityOption("Сент-Девідс");
+                    addCityOption("Сент-Марк");
+                    addCityOption("Сент-Джонс");
+                } else if (selectedCountry === "GT") {
+                    addCityOption("Гватемала");
+                    addCityOption("Куэтзальтенанго");
+                    addCityOption("Эскуюнла");
+                    addCityOption("Комалапа");
+                    addCityOption("Куэбра-Педра");
+                    addCityOption("Сан-Луис");
+                } else if (selectedCountry === "GN") {
+                    addCityOption("Конакри");
+                    addCityOption("Нзерекоре");
+                    addCityOption("Лабе");
+                    addCityOption("Канкан");
+                    addCityOption("Кисидугу");
+                    addCityOption("Боке");
+                } else if (selectedCountry === "GW") {
+                    addCityOption("Бісау");
+                    addCityOption("Бафата");
+                    addCityOption("Бубака");
+                    addCityOption("Кашу");
+                    addCityOption("Болам");
+                    addCityOption("Болама");
+                } else if (selectedCountry === "GY") {
+                    addCityOption("Джорджтаун");
+                    addCityOption("Нью-Амстердам");
+                    addCityOption("Лінден");
+                    addCityOption("Бартіка");
+                    addCityOption("Скелдон");
+                    addCityOption("Коррівтон");
+                } else if (selectedCountry === "HT") {
+                    addCityOption("Порт-о-Пренс");
+                    addCityOption("Кап-Аісєн");
+                    addCityOption("Гонаїв");
+                    addCityOption("Петіт-Гуаве");
+                    addCityOption("Леоган");
+                    addCityOption("Каяес");
+                } else if (selectedCountry === "HN") {
+                    addCityOption("Тегусігальпа");
+                    addCityOption("Сан-Педро-Сула");
+                    addCityOption("Чолутека");
+                    addCityOption("Ла-Сейба");
+                    addCityOption("Сан-Лоренсо");
+                    addCityOption("Данлі");
+                } else if (selectedCountry === "HU") {
+                    addCityOption("Будапешт");
+                    addCityOption("Дебрецен");
+                    addCityOption("Мішкольц");
+                    addCityOption("Жилина");
+                    addCityOption("Пест");
+                    addCityOption("Сегед");
+                    addCityOption("Сопрон");
+                    addCityOption("Шопрон");
+                } else if (selectedCountry === "UA") {
+                    addCityOption("Київ");
+                    addCityOption("Харків");
+                    addCityOption("Одеса");
+                    addCityOption("Дніпро");
+                    addCityOption("Запоріжжя");
+                    addCityOption("Львів");
+                    addCityOption("Кривий Ріг");
+                    addCityOption("Миколаїв");
+                    addCityOption("Маріуполь");
+                    addCityOption("Вінниця");
+                    addCityOption("Херсон");
+                    addCityOption("Полтава");
+                    addCityOption("Черкаси");
+                    addCityOption("Хмельницький");
+                    addCityOption("Суми");
+                    addCityOption("Житомир");
+                    addCityOption("Чернігів");
+                    addCityOption("Чернівці");
+                    addCityOption("Тернопіль");
+                    addCityOption("Івано-Франківськ");
+                    addCityOption("Кропивницький");
+                    addCityOption("Луцьк");
+                    addCityOption("Бровари");
+                    addCityOption("Ужгород");
+                    addCityOption("Мелітополь");
+                } else if (selectedCountry === "IE") {
+                    addCityOption("Дублін");
+                    addCityOption("Корк");
+                    addCityOption("Лімерік");
+                    addCityOption("Галвей");
+                    addCityOption("Вотерфорд");
+                    addCityOption("Дроєда");
+                    addCityOption("Дандолк");
+                    addCityOption("Трали");
+                } else if (selectedCountry === "IS") {
+                    addCityOption("Рейк'явік");
+                    addCityOption("Копавогур");
+                    addCityOption("Хафнарфьордур");
+                    addCityOption("Акюрейрі");
+                    addCityOption("Гардабаер");
+                    addCityOption("Кеклавік");
+                    addCityOption("Сельфосс");
+                    addCityOption("Акранес");
+                } else if (selectedCountry === "IN") {
+                    addCityOption("Делі");
+                    addCityOption("Мумбаї");
+                    addCityOption("Калькутта");
+                    addCityOption("Ченнаї");
+                    addCityOption("Бангалор");
+                    addCityOption("Хайдарабад");
+                    addCityOption("Ахмедабад");
+                    addCityOption("Пуне");
+                } else if (selectedCountry === "ID") {
+                    addCityOption("Джакарта");
+                    addCityOption("Сурабая");
+                    addCityOption("Медан");
+                    addCityOption("Бандунг");
+                    addCityOption("Семарапура");
+                    addCityOption("Макассар");
+                    addCityOption("Палангкаря");
+                    addCityOption("Депок");
+                } else if (selectedCountry === "IQ") {
+                    addCityOption("Багдад");
+                    addCityOption("Мосул");
+                    addCityOption("Басра");
+                    addCityOption("Ербіль");
+                    addCityOption("Найнава");
+                    addCityOption("Карбала");
+                    addCityOption("Аль-Амара");
+                    addCityOption("Дихок");
+                } else if (selectedCountry === "IR") {
+                    addCityOption("Тегеран");
+                    addCityOption("Машхад");
+                    addCityOption("Есфахан");
+                    addCityOption("Тебриз");
+                    addCityOption("Шираз");
+                    addCityOption("Ахваз");
+                    addCityOption("Керман");
+                    addCityOption("Раст");
+                } else if (selectedCountry === "IL") {
+                    addCityOption("Єрусалим");
+                    addCityOption("Тель-Авів");
+                    addCityOption("Хайфа");
+                    addCityOption("Ашдод");
+                    addCityOption("Рішон-ле-Ціон");
+                    addCityOption("Петах-Тіква");
+                    addCityOption("Беер-Шева");
+                    addCityOption("Нетанія");
+                } else if (selectedCountry === "IT") {
+                    addCityOption("Рим");
+                    addCityOption("Мілан");
+                    addCityOption("Неаполь");
+                    addCityOption("Турин");
+                    addCityOption("Палермо");
+                    addCityOption("Генуя");
+                    addCityOption("Флоренція");
+                    addCityOption("Болонья");
+                } else if (selectedCountry === "ES") {
+                    addCityOption("Мадрид");
+                    addCityOption("Барселона");
+                    addCityOption("Валенсія");
+                    addCityOption("Севілья");
+                    addCityOption("Сарагоса");
+                    addCityOption("Малага");
+                    addCityOption("Мурсія");
+                    addCityOption("Палма-де-Мальорка");
+                } else if (selectedCountry === "US") {
+                    addCityOption("Нью-Йорк");
+                    addCityOption("Лос-Анджелес");
+                    addCityOption("Чикаго");
+                    addCityOption("Хьюстон");
+                    addCityOption("Маямі");
+                    addCityOption("Філадельфія");
+                    addCityOption("Фінікс");
+                } else if (selectedCountry === "JM") {
+                    addCityOption("Кінгстон");
+                    addCityOption("Монтего-Бей");
+                    addCityOption("Мандевіл");
+                    addCityOption("Очо-Ріос");
+                    addCityOption("Порт-Морант");
+                    addCityOption("Сент-Енн");
+                    addCityOption("Саванна-ла-Мар");
+                    addCityOption("Морант-Бей");
+                }
+            }
+
+            function addCityOption(cityName) {
+                var citySelect = document.getElementById("city");
+                var option = document.createElement("option");
+                option.text = cityName;
+                citySelect.add(option);
+            }
+        </script>
+
+        <label for="dob">Дата народження:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="idNumber">Ідентифікаційний номер:</label>
+        <input type="text" id="idNumber" name="idNumber" required><br><br>
+
+        <input type="submit" value="Зареєструватись">
+    </form>
+    <script src="registration.js"></script>
+</body>
+
+</html>

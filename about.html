@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про сайт</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #d9d9d9;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .footer1 {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #999;
+            font-size: 12px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Шапка сайту -->
+    <header>
+        <!-- Логотип -->
+        <img class="logotype" src="logotype.png" alt="Логотип">
+        <h1>Факультет фізичної культури та спорту</h1>
+    </header>
+    <!-- Меню -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Про сайт</a></li>
+            <li><a href="gallery.html">Галерея картинок</a></li>
+            <li><a href="news.html">Новини</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </nav>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <nav>
+        <ul>
+            <li><a href="#about">Детальна інформація</a></li>
+            <li><a href="#programs">Наші програми</a></li>
+            <li><a href="#faculty">Наш факультет</a></li>
+            <li><a href="#contact">Наші дані</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <h2>Детальна інформація</h2>
+        <p>Факультет фізичної культури та спорту є одним із провідних навчальних закладів у галузі фізичної культури та
+            спорту. Ми пропагуємо активний спосіб життя, здоровий рух і розвиток фізичних здібностей.</p>
+    </section>
+
+    <section id="programs">
+        <h2>Наші програми</h2>
+        <ul>
+            <li>Бакалаврські програми:
+                <ul>
+                    <li>Фізична культура та рекреація</li>
+                    <li>Спорт і фітнес менеджмент</li>
+                    <li>Туризм і фітнес</li>
+                </ul>
+            </li>
+            <li>Магістерські програми:
+                <ul>
+                    <li>Теорія та методика фізичного виховання</li>
+                    <li>Спортивна медицина</li>
+                    <li>Фізична реабілітація</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section id="faculty">
+        <h2>Наш факультет</h2>
+        <p>Факультет фізичної культури та спорту налічує кваліфікованих викладачів і тренерів з великим досвідом у сфері
+            фізичної культури та спорту. Ми надаємо студентам необхідні знання, навички і практичний досвід для їх
+            професійного розвитку у галузі спорту.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Наші дані</h2>
+        <p>Для отримання додаткової інформації або запису на співбесіду, будь ласка, зв'яжіться з нами за наступними
+            контактними даними:</p>
+        <ul>
+            <li>Адреса: місто Полтава, Першотравневий проспект 24</li>
+            <li>Телефон: +12 345 678</li>
+            <li>Email: info@facultyofsport.com</li>
+        </ul>
+    </section>
+
+    <h3>Ми на карті</div>
+    </h3>
+    <div id="map"></div>
+
+    <script>
+        var map = L.map('map').setView([49.576216, 34.567107], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+        }).addTo(map);
+        L.marker([49.576216, 34.567107]).addTo(map)
+            .bindPopup('Місто Полтава, Першотравневий проспект 24')
+            .openPopup();
+    </script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img class="logotype" src="logotype.png" alt="Логотип">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">Про сайт</a></li>
+                    <li><a href="gallery.html">Галерея картинок</a></li>
+                    <li><a href="news.html">Новини</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://www.facebook.com/poltntufiz/"><i class="fab fa-facebook"></i><img class="socials" src="facebook.png"></a></li>
+                    <li><a href="https://www.instagram.com/poltava_polytechnic/"><i class="fab fa-instagram"></i><img class="socials" src="instagram.png"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer1">
+        <p>© 2023 Факультет фізичної культури та спорту. Усі права захищені.</p>
+    </footer>
+</body>
+
+</html>

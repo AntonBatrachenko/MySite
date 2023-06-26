@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інформаційний портал</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* Стилі для слайдера */
+        .slider-container {
+            width: 40%;
+            margin: 0 auto;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu {
+            position: absolute;
+            left: 0;
+            z-index: 900;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .menu label {
+            cursor: pointer;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            border-radius: 50px;
+            margin: 0 0.2em 1em;
+        }
+
+        .menu label:hover,
+        .menu label:focus {
+            background: #1c87c9;
+        }
+
+        .slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slider-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .slider-controls {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .slider-controls button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            z-index: 10;
+            padding: 8em 1em 0;
+            background-size: cover;
+            background-position: 50% 50%;
+            transition: left 0s 0.75s;
+        }
+
+        [id^="slide"]:checked+.slide {
+            left: 0;
+            z-index: 100;
+            transition: left 0.65s ease-out;
+        }
+
+        .slide-1 {
+            background-image: url("slider/slider1.JPG");
+        }
+
+        .slide-2 {
+            background-image: url("slider/slider2.JPG");
+        }
+
+        .slide-3 {
+            background-image: url("slider/slider3.JPG");
+        }
+
+        .slide-4 {
+            background-image: url("slider/slider4.JPG");
+        }
+
+        .slide-5 {
+            background-image: url("slider/slider5.JPG");
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Шапка сайту -->
+    <header>
+        <!-- Логотип -->
+        <img class="logotype" src="logotype.png" alt="Логотип">
+    </header>
+    <!-- Меню -->
+    <nav>
+        <div class="auth-buttons">
+            <button class="register-button" onclick="registration()">Зареєструватись</button>
+            <button class="login-button" onclick="login()">Увійти</button>
+        </div>
+        <ul>
+            <li><a href="about.html">Про сайт</a></li>
+            <li><a href="gallery.html">Галерея картинок</a></li>
+            <li><a href="news.html">Новини</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </nav>
+    <!-- Слайдер -->
+
+    <div class="slider-container">
+        <div class="menu">
+            <label for="slide-dot-1"></label>
+            <label for="slide-dot-2"></label>
+            <label for="slide-dot-3"></label>
+            <label for="slide-dot-4"></label>
+            <label for="slide-dot-5"></label>
+        </div>
+        <input id="slide-dot-1" type="radio" name="slides" checked>
+        <div class="slide slide-1"></div>
+        <input id="slide-dot-2" type="radio" name="slides">
+        <div class="slide slide-2"></div>
+        <input id="slide-dot-3" type="radio" name="slides">
+        <div class="slide slide-3"></div>
+        <input id="slide-dot-4" type="radio" name="slides">
+        <div class="slide slide-4"></div>
+        <input id="slide-dot-5" type="radio" name="slides">
+        <div class="slide slide-5"></div>
+    </div>
+
+
+
+    <section class="main-news">
+        <h2>Головні новини</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <img src="news/Virchenko.JPG" alt="Новина 1">
+                <h3>Олексій Вірченко</h3>
+                <p>Заслужений майстер спорту України з плавання, дворазовий бронзовий призер чемпіонату світу на
+                    дистанціях 100 метрів
+                    на спині та батерфляєм, чемпіон Чемпіонату світу з параплавання (2022).</p>
+                <p>Чемпіон Європи в естафеті 4х100 метрів.</p>
+                <p>Срібний призер Літніх Паралімпійських ігор 2020 у Токіо.</p>
+            </div>
+            <div class="news-item">
+                <img src="news/Bogodayko.JPG" alt="Новина 2">
+                <h3>Євгеній Богодайко</h3>
+                <p>Заслужений майстер спорту України з плавання, двічі нагороджений Орденом «За заслуги» ІІ ступеня,
+                    шестиразовий Чемпіон та семиразовий Призер Літніх Паралімпійських ігор.</p>
+                <p>Чемпіон Літньої Паралімпіади-2020 з плавання серед чоловіків брасом на дистанції 100 метрів у класі
+                    SВ6 у Токіо.</p>
+            </div>
+            <div class="news-item">
+                <img src="news/Kovalchuk.JPG" alt="Новина 2">
+                <h3>Анастасія Ковальчук</h3>
+                <p>Заслужений майстер спорту України зі спортивного більярду, Призерка Чемпіонату світу з більярду.</p>
+            </div>
+            <div class="news-item">
+                <img src="news/Brazhnyk.JPG" alt="Новина 1">
+                <h3>Дарія Бражник</h3>
+                <p>Майстер спорту України міжнародного класу з пауерліфтингу, Чемпіонка світу з пауерліфтингу серед
+                    дівчат,
+                    Чемпіонка Європи серед юніорок з пауерліфтингу, встановила три нових рекорди України з пауерліфтингу
+                    серед юніорів,
+                    спортсменка року в номінації «Видатні люди Полтави».</p>
+            </div>
+            <div class="news-item">
+                <img src="news/Borovyk.JPG" alt="Новина 2">
+                <h3>Олег Боровик</h3>
+                <p>Майстер спорту України міжнародного класу з веслування на байдарках і каное.</p>
+                <p>Віце чемпіон світу, 2-разовий чемпіон Європи та багаторазовий чемпіон України з веслування на
+                    байдарках і каное.</p>
+                <p>Призер Чемпіонату Європи та Кубку світу з веслування на баййдарках і каное (2022).</p>
+            </div>
+            <div class="news-item">
+                <img src="news/Bozhynskiy.JPG" alt="Новина 2">
+                <h3>Юрій Божинський</h3>
+                <p>Майстер спорту України міжнародного класу з плавання.</p>
+                <p>Срібний та бронзовий призер Параолімпійських ігор (Ріо – 2016).</p>
+                <p>Багаторазовий переможець чемпіонатів світу та Європи.</p>
+                <p>Багаторазовий чемпіон та призер Чемпіонатів та Кубків України Нагороджений Орденом «За мужність» III
+                    ст.</p>
+                <p>Бронзовий призер літніх Параолімпійських ігор Токіо-2020.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img class="logotype" src="logotype.png" alt="Логотип">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">Про сайт</a></li>
+                    <li><a href="gallery.html">Галерея картинок</a></li>
+                    <li><a href="news.html">Новини</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://www.facebook.com/poltntufiz/"><i class="fab fa-facebook"></i><img class="socials" src="facebook.png"></a></li>
+                    <li><a href="https://www.instagram.com/poltava_polytechnic/"><i class="fab fa-instagram"></i><img class="socials" src="instagram.png"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

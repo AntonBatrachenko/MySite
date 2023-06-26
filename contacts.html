@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src="script.js" defer></script>
+    <style>
+        h1, h2 {
+            color: #fff;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-info img {
+            width: 200px;
+            margin-right: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-info .contact-details {
+            flex-grow: 1;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #23527c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайту -->
+    <header>
+        <!-- Логотип -->
+        <img class="logotype" src="logotype.png" alt="Логотип">
+    </header>
+    <!-- Меню -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Про сайт</a></li>
+            <li><a href="gallery.html">Галерея картинок</a></li>
+            <li><a href="news.html">Новини</a></li>
+            <li><a href="contacts.html">Контакти</a></li>
+        </ul>
+    </nav>
+    <h1>Контакти</h1>
+    <div class="contact-info">
+        <img src="contacts/RybalkoLM.jpg" alt="Фотографія Рибалко Ліни Миколаївни">
+        <div class="contact-details">
+            <h2>Рибалко Ліна Миколаївна</h2>
+            <p>Доктор педагогічних наук, професор</p>
+            <p>(066) 393 00 91</p>
+            <p>lina-rybalko@ukr.net</p>
+        </div>
+    </div>
+    <div class="contact-info">
+        <img src="contacts/GordienkoO.JPG" alt="Фотографія Гордієнко Оксани Валеріївни">
+        <div class="contact-details">
+            <h2>Гордієнко Оксана Валеріївна</h2>
+            <p>Майстер спорту України міжнародного класу, тренер з пауерліфтингу</p>
+            <p>(066) 798 90 35</p>
+            <p>ksanagord@ukr.net</p>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+        <div class="footer-logo">
+            <img class="logotype" src="logotype.png" alt="Логотип">
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li><a href="index.html">Про сайт</a></li>
+                <li><a href="gallery.html">Галерея картинок</a></li>
+                <li><a href="news.html">Новини</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://www.facebook.com/poltntufiz/"><i class="fab fa-facebook"></i><img class="socials" src="facebook.png"></a></li>
+                    <li><a href="https://www.instagram.com/poltava_polytechnic/"><i class="fab fa-instagram"></i><img class="socials" src="instagram.png"></a></li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+</body>
+</html>
